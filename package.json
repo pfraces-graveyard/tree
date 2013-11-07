@@ -1,0 +1,11 @@
+{
+  "name": "u.tree",
+  "version": "0.0.0",
+  "description": "Object traversal with filters",
+  "main": "tree.js",
+  "dependencies": {
+    "u.walk": "*"
+  },
+  "author": "Pau Fracés <pfraces@gmail.com>",
+  "license": "MIT"
+}
