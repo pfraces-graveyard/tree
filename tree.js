@@ -24,10 +24,10 @@ Tree.prototype.walk = function (callback) {
 
   walk(this.root, function (stats, next) {
     var node = stats.node,
-        isBranch = is.object(node) || is.array(node),
+        isBranch = is.array(node) || is.object(node),
         isLeaf = !isBranch;
 
-    stats.parent = arr(stats.parents).last();
+    stats.parent = arr.last(stats.parents);
 
     stats.is = {
       leaf: isLeaf,

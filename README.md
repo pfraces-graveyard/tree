@@ -5,7 +5,7 @@ Object traversal with filters
 # Usage
 
 ```js
-var tree = require('./tree');
+var tree = require('u.tree');
 
 var obj = {
   foo: 0.5,
