@@ -5,18 +5,10 @@ Object traversal with filters
 # Usage
 
 ```js
-var root = function (stats) {
-  return stats.node === stats.root;
-};
-
-var own = function (stats) {
-  return stats.parent.hasOwnProperty(stats.index);
-};
-
-var tree = require('tree');
+var tree = require('./tree');
 
 var obj = {
-  foo: 1,
+  foo: 0.5,
   bar: {
     a: [1,2,3],
     b: [{
@@ -25,15 +17,38 @@ var obj = {
     },
     {
       x: null,
-      z: console.log
+      z: function () {
+        console.log('I am a function!');
+      }
     }]
   }
 };
 
 tree(obj)
-  .skip(root)
-  .follow(own)
-  .each(function (stats) {
-    console.log(stats.index, stats.node);
+  .primitive()
+  .walk(function (stats) {
+    console.log(stats.path.join('.'), stats.node);
   });
 ```
+
+```
+foo 0.5
+bar.a.0 1
+bar.a.1 2
+bar.a.2 3
+bar.b.0.x hi!
+bar.b.0.y bye!
+bar.b.1.x null
+```
+
+# Install
+
+    npm install u.tree
+
+# Motivation
+
+Straightforward object traversal
+
+# Alternatives
+
+*   traverse

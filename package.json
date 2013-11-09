@@ -4,6 +4,8 @@
   "description": "Object traversal with filters",
   "main": "tree.js",
   "dependencies": {
+    "u.is": "*",
+    "u.arr": "*",
     "u.walk": "*"
   },
   "author": "Pau Fracés <pfraces@gmail.com>",
